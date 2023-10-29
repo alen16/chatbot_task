@@ -3,8 +3,8 @@ import os
 import streamlit as st
 import numpy as np
 
-st.title("ChatGPT demo")
-openai.api_key = "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"
+st.title("Fist chatbot demo")
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-4"
