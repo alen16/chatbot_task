@@ -4,41 +4,24 @@ import streamlit as st
 import numpy as np
 
 st.title("ChatGPT demo")
-openai.api_key = "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"
+openai.api_key = "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"
 
 if "openai_model" not in st.session_state:
-    st.session_state["openai_model"] = "gpt-3.5-turbo"
+    st.session_state["openai_model"] = "gpt-4"
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
+    st.session_state.messages.append({"role": "system", "content": "You are a helpful Named Entities assistant."})
+    st.session_state.messages.append({"role": "user", "content": "I'll give you a sentence in the following. Please extract entities from the given paragraph without any numbers or amount. Please note that this output contains an array of the extracted entities without any key entity specified."})
+    st.session_state.messages.append({"role": "system", "content": "Sure, I can extract entities for you. Please provide the sentence."})
+
 
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-st.session_state.messages.append({"role": "system", "content": "You are a helpful Named Entities assistant."})
-st.session_state.messages.append({"role": "user", "content": "I'll give you a sentence in the following. Please extract entities from the given paragraph without any numbers or amount. Please note that this output contains an array of the extracted entities without any key entity specified."})
-st.session_state.messages.append({"role": "system", "content": "Sure, I can extract entities for you. Please provide the sentence."})
-
 max_messages = (
     20  # Counting both user and assistant messages, so 10 iterations of conversation
 )
-
-def update_messages(messages=[], role='user', content=''):
-    messages.append({"role": role, "content": content})
-    return messages
-
-def call_chat_gpt(messages=[]):
-    if messages:
-        #print(messages)
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=messages,
-            stream=True
-        )
-    return response
-
-
-
 
 if len(st.session_state.messages) > max_messages:
     st.info("Notice: You reached the limit for the demo version. Please refresh the website and try again!")
