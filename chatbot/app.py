@@ -6,7 +6,6 @@ import os
 import streamlit as st
 
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
-st.session_state["openai_model"] = "gpt-4"
 
 def construct_index(directory_path):
     max_input_size = 4096
@@ -15,6 +14,8 @@ def construct_index(directory_path):
     chunk_size_limit = 8192
 
     prompt_helper = PromptHelper(max_input_size, num_outputs, max_chunk_overlap, chunk_size_limit=chunk_size_limit)
+    #service_context = ServiceContext.from_defaults(llm_predictor=llm_predictor)
+
 
     llm_predictor = LLMPredictor(llm=OpenAI(temperature=0.7, model_name="gpt-4", max_tokens=num_outputs))
 
@@ -22,7 +23,7 @@ def construct_index(directory_path):
 
     index = GPTVectorStoreIndex(documents, llm_predictor=llm_predictor, prompt_helper=prompt_helper)
 
-    index.save_to_disk('index.json')
+    index.storage_context.persist(persist_dir='index.json')
 
     return index
 
