@@ -19,7 +19,7 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 max_messages = (
-    20  # Counting both user and assistant messages, so 10 iterations of conversation
+    100  # Counting both user and assistant messages, so 10 iterations of conversation
 )
 
 if len(st.session_state.messages) > max_messages:
