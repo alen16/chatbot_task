@@ -30,6 +30,7 @@ To get started, ensure you have the following installed:
    ```bash
    [secrets]
    OPENAI_API_KEY="sk-XXX"
+
 Replace "sk-XXX" with your actual OpenAI API key.
 
 ##Required Libraries
