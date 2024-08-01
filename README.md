@@ -34,7 +34,7 @@ To get started, ensure you have the following installed:
 
 Replace "sk-XXX" with your actual OpenAI API key.
 
-##Required Libraries
+## Required Libraries
 The following libraries are required for the project:
 ```bash
 beautifulsoup4==4.12.2
@@ -50,7 +50,7 @@ pandas==2.1.2
 streamlit==1.28.1
 ```
 
-##Usage
+## Usage
 To start the chatbot, run the following command in your terminal:
 
    ```bash
