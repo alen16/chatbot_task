@@ -30,3 +30,32 @@ To get started, ensure you have the following installed:
    ```bash
    [secrets]
    OPENAI_API_KEY="sk-XXX"
+```
+
+Replace "sk-XXX" with your actual OpenAI API key.
+
+##Required Libraries
+The following libraries are required for the project:
+
+beautifulsoup4==4.12.2
+fastapi==0.104.1
+gradio==3.24.1
+huggingface-hub==0.18.0
+langchain==0.0.330
+llama-index==0.8.59
+nltk==3.8.1
+numpy==1.26.1
+openai==0.28.1
+pandas==2.1.2
+streamlit==1.28.1
+
+##Usage
+To start the chatbot, run the following command in your terminal:
+
+   ```bash
+   streamlit run streamlit_chatbot.py
+```
+Make sure to follow the instructions in the app to interact with the QA chatbot.
+
+##Contributing
+We welcome contributions! Please submit a pull request or open an issue to discuss your ideas.
