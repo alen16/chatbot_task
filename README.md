@@ -59,5 +59,5 @@ To start the chatbot, run the following command in your terminal:
 ```
 Make sure to follow the instructions in the app to interact with the QA chatbot.
 
-##Contributing
+## Contributing
 We welcome contributions! Please submit a pull request or open an issue to discuss your ideas.
